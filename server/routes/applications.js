@@ -1,7 +1,7 @@
 const router = require('express').Router();
 let Application = require('../models/applicationModel');
 
-router.route('/').get((res, req) => {
+router.route('/').get((req, res) => {
     Application.find()
         .then(applications => res.json(applications))
         .catch(err => res.status(400).json('Error: ' + err))
