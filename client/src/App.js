@@ -3,11 +3,15 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import CreateApp from './components/CreateApp';
+
 function App() {
   return (
-    <div className="container">
-      Hello World!
-    </div>
+    <Router>
+      <div className="container">
+        <Route path='/create' component={CreateApp}/>
+      </div>
+    </Router>
   );
 }
 
