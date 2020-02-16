@@ -4,11 +4,13 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CreateApp from './components/CreateApp';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
       <div className="container">
+        <Navbar/>
         <Route path='/create' component={CreateApp}/>
       </div>
     </Router>
