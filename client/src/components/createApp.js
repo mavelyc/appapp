@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
 
 class CreateApp extends Component {
     constructor(props) {
@@ -56,6 +57,11 @@ class CreateApp extends Component {
         }
 
         console.log(app);
+
+        axios.post("http://localhost:5000/applications/add/", app)
+            .then(res => console.log(res.data));
+
+        window.location = '/';
     }
 
     render() {

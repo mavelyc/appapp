@@ -12,7 +12,7 @@ router.route('/add').post((req, res) => {
     const position = req.body.position;
     const date = Date(req.body.date);
     const status = req.body.status;
-
+    
     const newApplication = new Application({
         company,
         position,
@@ -21,7 +21,7 @@ router.route('/add').post((req, res) => {
     });
 
     newApplication.save()
-        .then(() => res.json('Exercise added!'))
+        .then(() => res.json('Application added!'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -33,7 +33,7 @@ router.route('/:id').get((req, res) => {
 
 router.route('/:id').delete((req,res) => {
     Application.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Exercise deleted.'))
+        .then(() => res.json('Application deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 })
 
