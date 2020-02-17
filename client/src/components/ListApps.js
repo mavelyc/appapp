@@ -13,19 +13,19 @@ class ListApps extends Component {
     }
 
     componentDidMount = () => {
-        axios.get("http://localhost:5000/applications")
+        axios.get("http://localhost:5000/applications/")
             .then(res => {
                 this.setState({
                     applications: res.data
                 })
                 console.log(this.state.applications)
             })
-            .catch(err => console.log("Error: " + err))
+            .catch(err => console.log(err))
     }
 
-    AppList = () => {
+    appList () {
         return this.state.applications.map(currentApplication => {
-            return <ListComponent application={currentApplication}/>
+            return <ListComponent application={currentApplication} key={currentApplication._id}/>;
         })
     }
 
@@ -43,7 +43,7 @@ class ListApps extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {this.AppList()} */}
+                        {this.appList()}
                     </tbody>
                 </table>
             </div>
