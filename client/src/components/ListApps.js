@@ -1,13 +1,32 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
+import ListComponent from './ListComponent'
+
 class ListApps extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-
+            applications: []
         }
+    }
+
+    componentDidMount = () => {
+        axios.get("http://localhost:5000/applications")
+            .then(res => {
+                this.setState({
+                    applications: res.data
+                })
+                console.log(this.state.applications)
+            })
+            .catch(err => console.log("Error: " + err))
+    }
+
+    AppList = () => {
+        return this.state.applications.map(currentApplication => {
+            return <ListComponent application={currentApplication}/>
+        })
     }
 
     render() {
