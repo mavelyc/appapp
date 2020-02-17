@@ -23,9 +23,19 @@ class ListApps extends Component {
             .catch(err => console.log(err))
     }
 
+    deleteApp = (id) => {
+        axios.delete("http://localhost:5000/applications/" + id)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
+
+        this.setState({
+            applications: this.state.applications.filter(app => app._id != id)
+        })
+    }
+
     appList () {
         return this.state.applications.map(currentApplication => {
-            return <ListComponent application={currentApplication} key={currentApplication._id}/>;
+            return <ListComponent application={currentApplication} deleteApp={this.deleteApp} key={currentApplication._id}/>;
         })
     }
 
