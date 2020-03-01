@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import UpdateApp from './UpdateApp';
+import { Link } from 'react-router-dom';
+
 
 class ListComponent extends Component {
     constructor(props){
@@ -32,10 +34,7 @@ class ListComponent extends Component {
             <td>{this.state.status}</td>
             <td>{this.props.application.date.substring(0,10)}</td>
             <td>
-                <button onClick={() => { this.props.deleteApp(this.props.application._id) }}>delete</button>
-            </td>
-            <td>
-                <button onClick={() => { this.updateApp(this.props.application._id) }}>update</button>
+                <Link to={"/update/"+this.props.application._id}>edit</Link> | <button onClick={() => { this.props.deleteApp(this.props.application._id) }}>delete</button>
             </td>
         </tr>
         );

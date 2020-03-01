@@ -14,7 +14,7 @@ function App() {
         <Navbar/>
         <Route path='/' exact component={ListApps}/>
         <Route path='/create' component={CreateApp}/>
-        <Route path='/update' component={UpdateApp}/>
+        <Route path='/update/:id' component={UpdateApp}/>
       </div>
     </Router>
   );

@@ -75,7 +75,7 @@ class UpdateApp extends Component {
     render() {
         return (
             <div className="container">
-                hello
+                test
             </div>
         );
     }
