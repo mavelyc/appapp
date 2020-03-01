@@ -23,7 +23,7 @@ class ListApps extends Component {
             .catch(err => console.log(err))
     }
 
-    deleteApp = (id) => {
+    deleteApp = (id) => {z
         axios.delete("http://localhost:5000/applications/" + id)
             .then(res => console.log(res.data))
             .catch(err => console.log(err));

@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CreateApp from './components/CreateApp';
 import Navbar from './components/Navbar';
-import ListApps from './components/ListApps'
+import ListApps from './components/ListApps';
+import UpdateApp from './components/UpdateApp';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Navbar/>
         <Route path='/' exact component={ListApps}/>
         <Route path='/create' component={CreateApp}/>
+        <Route path='/update' component={UpdateApp}/>
       </div>
     </Router>
   );
