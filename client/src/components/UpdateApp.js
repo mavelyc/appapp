@@ -20,9 +20,12 @@ class UpdateApp extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props.id);
-        axios.get("http://localhost:5000/applications/" + this.props.id)
-            .then(res => console.log(res.data.company))
+        console.log(this.props.match.params);
+        axios.get("http://localhost:5000/applications/" + this.props.match.params.id)
+            .then(res => this.setState({
+                company: res.data.company,
+                position: res.data.position,
+            }))
             .catch(err => console.log(err));
 
     }
@@ -75,7 +78,26 @@ class UpdateApp extends Component {
     render() {
         return (
             <div className="container">
-                test
+                <form>
+                <div className="form-group">
+                    <label>Company Name</label>
+                    <input required type="text" className="form-control" value={this.state.company} onChange={this.onChangeCompany}/>
+                </div>
+                <div className="form-group">
+                    <label>Job Title</label>
+                    <input required type="text" className="form-control" value={this.state.position} onChange={this.onChangePosition}/>
+                </div>
+                <div className="form-group">
+                <label>Date </label>
+                <div>
+                    <DatePicker
+                    selected={this.state.date}
+                    onChange={this.onChangeDate}
+                    />
+                </div>
+                </div>
+                <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Submit</button>
+                </form>
             </div>
         );
     }

@@ -10,7 +10,6 @@ class ListComponent extends Component {
         this.state = {
             status: ""
         }
-        this.updateApp = this.updateApp.bind(this);
     }
 
     componentDidMount() {
@@ -19,11 +18,6 @@ class ListComponent extends Component {
             status: Object.entries(this.props.application.status).filter(status => status[1] == true)[0][0]
         })
         
-    }
-
-    updateApp = (id) => {
-        console.log("update presed: " + id)
-        return <UpdateApp id={id}/>
     }
 
     render(){
