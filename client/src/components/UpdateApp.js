@@ -69,7 +69,7 @@ class UpdateApp extends Component {
 
         console.log(app);
 
-        axios.post("http://localhost:5000/applications/add/", app)
+        axios.post("http://localhost:5000/applications/" + this.props.match.params.id, app)
             .then(res => console.log(res.data));
 
         window.location = '/';
