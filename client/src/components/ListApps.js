@@ -49,7 +49,7 @@ class ListApps extends Component {
                             <th>Company</th>
                             <th>Position</th>
                             <th>Status</th>
-                            <th>Date</th>
+                            <th>Date Applied</th>
                         </tr>
                     </thead>
                     <tbody>
