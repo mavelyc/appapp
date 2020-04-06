@@ -12,8 +12,8 @@ const applicationSchema = new Schema({
         offered: {type: Boolean, required: true},
         rejected: {type: Boolean, required: true}
     }
-}, {
-    timestamps: true
+},{
+    collection: "users"
 })
 
 const Application = mongoose.model('Application', applicationSchema)
