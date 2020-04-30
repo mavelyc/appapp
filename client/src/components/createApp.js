@@ -3,6 +3,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 
+import Navbar from './Navbar'
+
 class CreateApp extends Component {
     constructor(props) {
         super(props)
@@ -67,6 +69,7 @@ class CreateApp extends Component {
     render() {
         return (
             <div className="container">
+                <Navbar/>
                 <form>
                 <div className="form-group">
                     <label>Company Name</label>

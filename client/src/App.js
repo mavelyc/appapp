@@ -6,13 +6,13 @@ import CreateApp from './components/CreateApp';
 import Navbar from './components/Navbar';
 import ListApps from './components/ListApps';
 import UpdateApp from './components/UpdateApp';
+import Login from './components/Login';
 
 function App() {
   return (
     <Router>
       <div className="container">
-        <Navbar/>
-        <Route path='/' exact component={ListApps}/>
+        <Route path='/' exact component={Login}/>
         <Route path='/create' component={CreateApp}/>
         <Route path='/update/:id' component={UpdateApp}/>
       </div>
