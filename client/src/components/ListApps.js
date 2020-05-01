@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {withCookies} from 'react-cookie';
 
 import ListComponent from './ListComponent'
 import Navbar from './Navbar'
@@ -22,6 +23,7 @@ class ListApps extends Component {
                 console.log(this.state.applications)
             })
             .catch(err => console.log(err))
+        console.log("no way:" + this.props.cookies.get('user'))
     }
 
     deleteApp = (id) => {
@@ -63,4 +65,4 @@ class ListApps extends Component {
     }
 }
 
-export default ListApps;
+export default withCookies(ListApps);
