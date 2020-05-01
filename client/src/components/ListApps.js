@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 
 import ListComponent from './ListComponent'
+import Navbar from './Navbar'
 
 class ListApps extends Component {
     constructor(props) {
@@ -42,6 +43,7 @@ class ListApps extends Component {
     render() {
         return (
             <div>
+                <Navbar/>
                 <h2>All My Job Applications</h2>
                 <table className="table">
                     <thead className="thread-light">

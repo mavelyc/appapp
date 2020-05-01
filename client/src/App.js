@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import CreateApp from './components/CreateApp';
-import Navbar from './components/Navbar';
 import ListApps from './components/ListApps';
 import UpdateApp from './components/UpdateApp';
 import Login from './components/Login';
@@ -13,6 +12,7 @@ function App() {
     <Router>
       <div className="container">
         <Route path='/' exact component={Login}/>
+        <Route path='/list' component={ListApps}/>
         <Route path='/create' component={CreateApp}/>
         <Route path='/update/:id' component={UpdateApp}/>
       </div>

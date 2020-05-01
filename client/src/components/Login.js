@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import ListApps from "./ListApps"
 
 class Login extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            user: ""
+            user: "",
+            submit: false
         }
 
         this.onChangeUser = this.onChangeUser.bind(this)
@@ -30,7 +32,16 @@ class Login extends Component {
         })
     }
 
+    onSubmit = () => {
+        this.setState({
+            submit: true
+        })
+    }
+
     render() {
+        if (this.state.submit){
+            return (<ListApps/>)
+        }
         return (
             <div className="container">
                 <form>
