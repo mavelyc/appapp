@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import ListApps from "./ListApps"
+import {withCookies} from 'react-cookie';
 
 class Login extends Component {
     constructor(props) {
@@ -33,9 +34,11 @@ class Login extends Component {
     }
 
     onSubmit = () => {
+        this.props.cookies.set('user', this.state.user, { path: '/' })
         this.setState({
             submit: true
         })
+        console.log("cookies: " + this.props.cookies.get('user'))
     }
 
     render() {
@@ -56,4 +59,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withCookies(Login);
