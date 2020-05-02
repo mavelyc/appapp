@@ -18,6 +18,7 @@ class App extends Component {
       <div className="container">
         <Route path='/' exact render={() => (<Login cookies={this.props.cookies}/>)}/>
         <Route path='/create' render={() => (<CreateApp cookies={this.props.cookies}/>)}/>
+        <Route path='/list' render={() => (<ListApps cookies={this.props.cookies}/>)}/>
         <Route path='/update/:id' render={() => (<UpdateApp cookies={this.props.cookies}/>)}/>
         <Route path='/dashboard'render={() => (<Dashboard cookies={this.props.cookies}/>)}/>
       </div>

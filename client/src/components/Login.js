@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ListApps from "./ListApps"
+import { Link } from 'react-router-dom';
 import {withCookies} from 'react-cookie';
 
 class Login extends Component {
@@ -15,13 +16,10 @@ class Login extends Component {
     }
 
     componentDidMount = () => {
-        console.log("pre:" + this.props.cookies.get('user'))
         this.setState({
             user: "",
-            submit: false
         })
         this.props.cookies.remove('user', { path: '/' })
-        console.log("post:" + this.props.cookies.get('user'))
     }
 
     onChangeUser(e) {
@@ -40,9 +38,6 @@ class Login extends Component {
     }
 
     render() {
-        if (this.state.submit){
-            return (<ListApps/>)
-        }
         return (
             <div className="container">
                 <form>
@@ -50,7 +45,7 @@ class Login extends Component {
                     <label>User Name</label>
                     <input required type="text" className="form-control" value={this.state.user} onChange={this.onChangeUser}/>
                 </div>
-                <button type="button" className="btn btn-primary" onClick={this.onSubmit}>Submit</button>
+                <Link to="/list" className="navbar-nav" onClick={this.onSubmit}>Submit</Link>
                 </form>
             </div>
         )
