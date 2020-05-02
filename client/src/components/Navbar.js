@@ -10,10 +10,10 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link to="/list" className="navbar-brand">My Job Applications</Link>
-                <Link to="/create" className="navbar-nav">Create</Link>
-                <Link to="/dashboard" className= "dashboard">Dashboard</Link>
-                <Link to="/" className="navbar-nav">Logout</Link>
+                <Link to="/list" className="navbar-brand">My Job Applications</Link>&nbsp;&nbsp;
+                <Link to="/create" className="navbar-nav">Create</Link>&nbsp;&nbsp;&nbsp;&nbsp;
+                <Link to="/dashboard" className= "dashboard">Dashboard</Link>&nbsp;&nbsp;&nbsp;&nbsp;
+                <Link to="/" className="navbar-nav">Logout</Link>&nbsp;&nbsp;&nbsp;&nbsp;
             </nav>
         )
     }

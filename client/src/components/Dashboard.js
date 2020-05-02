@@ -67,14 +67,17 @@ class Dashboard extends Component {
 
             <div className="App">
             <Navbar />
+            <br /><br />
                 <h1>Welcome to your Personal Job Applications Dashboard </h1>
                 <br /> <br /> <br /> <br />
-                <ChartLabel>Job Applications Over Time></ChartLabel>
+
+                
                 <Container>
+                
                     <Row>
                         <Col>
 
-                            <h4>Job Applications Over Time</h4>
+                        <ChartLabel>Job Applications Over Time></ChartLabel>
                             <XYPlot height={350} width={400}>
                                 <VerticalGridLines />
                                 <HorizontalGridLines />
