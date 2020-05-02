@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import {withCookies} from 'react-cookie';
+
 
 
 class Navbar extends Component {
@@ -17,4 +19,4 @@ class Navbar extends Component {
 
 };
 
-export default Navbar;
+export default withCookies(Navbar);

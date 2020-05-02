@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import ListApps from "./ListApps"
 import {withCookies} from 'react-cookie';
 
@@ -16,14 +15,13 @@ class Login extends Component {
     }
 
     componentDidMount = () => {
-        axios.get("http://localhost:5000/applications/")
-            .then(res => {
-                this.setState({
-                    applications: res.data
-                })
-                console.log(this.state.applications)
-            })
-            .catch(err => console.log(err))
+        console.log("pre:" + this.props.cookies.get('user'))
+        this.setState({
+            user: "",
+            submit: false
+        })
+        this.props.cookies.remove('user', { path: '/' })
+        console.log("post:" + this.props.cookies.get('user'))
     }
 
     onChangeUser(e) {
