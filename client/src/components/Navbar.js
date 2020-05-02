@@ -11,6 +11,7 @@ class Navbar extends Component {
                 <Link to="/list" className="navbar-brand">My Job Applications</Link>
                 <Link to="/create" className="navbar-nav">Create</Link>
                 <Link to="/" className="navbar-nav">Logout</Link>
+                <Link to="/dashboard" className= "dashboard">Dashboard</Link>
             </nav>
         )
     }
