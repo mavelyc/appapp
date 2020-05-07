@@ -76,8 +76,9 @@ class Dashboard extends Component {
                 
                     <Row>
                         <Col>
+                        <center>
 
-                        <ChartLabel>Job Applications Over Time></ChartLabel>
+                        <h4>Job Applications Over Time</h4>
                             <XYPlot height={350} width={400}>
                                 <VerticalGridLines />
                                 <HorizontalGridLines />
@@ -85,9 +86,10 @@ class Dashboard extends Component {
                                 <YAxis />
                                 <LineSeries data={lineData} />
                             </XYPlot>
+                            </center>
                         </Col>
                         <Col>
-
+                            <center>
                             <h4>Job Applications Over Time</h4>
 
                             <RadialChart height={350} width={400}
@@ -98,7 +100,7 @@ class Dashboard extends Component {
                                 }}
                                 showLabels
                             />
-
+                            </center>
                         </Col>
 
                     </Row>
