@@ -15,15 +15,16 @@ class ListApps extends Component {
     }
 
     componentDidMount = () => {
-        axios.get("http://localhost:5000/applications/")
+        axios.get("http://localhost:5000/applications/" + this.props.cookies.get('user'))
             .then(res => {
+                console.log("res: " + JSON.stringify(res.data))
                 this.setState({
-                    applications: res.data
+                    applications: res.data.apps
                 })
                 console.log(this.state.applications)
             })
             .catch(err => console.log(err))
-        console.log("no way:" + this.props.cookies.get('user'))
+        console.log("user in cookies:" + this.props.cookies.get('user'))
     }
 
     deleteApp = (id) => {

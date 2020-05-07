@@ -8,7 +8,6 @@ import ListApps from './components/ListApps';
 import UpdateApp from './components/UpdateApp';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
-import Navbar from './components/Navbar';
 
 
 class App extends Component {

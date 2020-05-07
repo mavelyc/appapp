@@ -1,8 +1,8 @@
 const router = require('express').Router();
 let Application = require('../models/applicationModel');
 
-router.route('/').get((req, res) => {
-    Application.find()
+router.route('/:user').get((req, res) => {
+    Application.findOne({user: req.params.user},)
         .then(applications => res.json(applications))
         .catch(err => res.status(400).json('Error: ' + err))
 })
@@ -25,11 +25,11 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((req, res) => {
-    Application.findById(req.params.id)
-        .then(application => res.json(application))
-        .catch(err => res.status(400).json("Error: " + err));
-})
+// router.route('/:id').get((req, res) => {
+//     Application.findById(req.params.id)
+//         .then(application => res.json(application))
+//         .catch(err => res.status(400).json("Error: " + err));
+// })
 
 router.route('/:id').delete((req,res) => {
     Application.findByIdAndDelete(req.params.id)
