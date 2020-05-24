@@ -14,20 +14,16 @@ router.route('/add').post((req, res) => {
     const status = req.body.status;
 
 
-    const application2 = {
+    const application = {
         company,
         position,
         date,
         status
     }   
 
-    User.findOneAndUpdate({user: "christian"}, { $push: {apps: application2}})
+    User.findOneAndUpdate({user: req.body.user}, { $push: {apps: application}})
         .then(() => res.json("JS is so sick"))
         .catch(err => "Error: " + err)
-
-    // newApplication.save()
-    //     .then(() => res.json('Application added!'))
-    //     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // router.route('/:id').get((req, res) => {
