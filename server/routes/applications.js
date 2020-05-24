@@ -1,8 +1,8 @@
 const router = require('express').Router();
-let Application = require('../models/applicationModel');
+let User = require('../models/applicationModel');
 
 router.route('/:user').get((req, res) => {
-    Application.findOne({user: req.params.user},)
+    User.findOne({user: req.params.user},)
         .then(applications => res.json(applications))
         .catch(err => res.status(400).json('Error: ' + err))
 })
@@ -12,17 +12,22 @@ router.route('/add').post((req, res) => {
     const position = req.body.position;
     const date = Date(req.body.date);
     const status = req.body.status;
-    
-    const newApplication = new Application({
+
+
+    const application2 = {
         company,
         position,
         date,
         status
-    });
+    }   
 
-    newApplication.save()
-        .then(() => res.json('Application added!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+    User.findOneAndUpdate({user: "christian"}, { $push: {apps: application2}})
+        .then(() => res.json("JS is so sick"))
+        .catch(err => "Error: " + err)
+
+    // newApplication.save()
+    //     .then(() => res.json('Application added!'))
+    //     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 // router.route('/:id').get((req, res) => {

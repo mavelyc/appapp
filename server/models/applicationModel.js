@@ -16,6 +16,15 @@ const applicationSchema = new Schema({
     collection: "users"
 })
 
+const userSchema = new Schema({
+    user: {type: String, required: true},
+    apps: [applicationSchema]
+},{
+    collection: "users"
+})
+
+const User = mongoose.model('User', userSchema)
 const Application = mongoose.model('Application', applicationSchema)
 
-module.exports = Application;
+module.exports = User;
+//module.exports = Application;
