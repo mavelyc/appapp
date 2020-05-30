@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let User = require('../models/applicationModel');
+const {User, Application} = require('../models/applicationModel')
 
 router.route('/:user').get((req, res) => {
     User.findOne({user: req.params.user},)
@@ -26,29 +26,27 @@ router.route('/add').post((req, res) => {
         .catch(err => "Error: " + err)
 });
 
-// router.route('/:id').get((req, res) => {
-//     Application.findById(req.params.id)
-//         .then(application => res.json(application))
-//         .catch(err => res.status(400).json("Error: " + err));
+// router.route('/:id').post((req,res) => {
+
+//     User.findOne({user: req.body.user})
+//         .then(applications => {
+
+            // applications.apps.pull(id)
+            // applications.save()
+            //     .then(() => res.json("Deleted"))
+            //     .catch(err => res.json("Nah styll"))
+//             res.json(applications)
+//         })
+//         .catch(err => "Error: " + err)
 // })
 
-router.route('/:id').delete((req,res) => {
-    Application.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Application deleted.'))
-        .catch(err => res.status(400).json('Error: ' + err));
-})
+router.route('/:id').delete((req, res) => { //delete job app using object id
+    User.findOne({user: req.body.user})
+        .then(applications => {
 
-router.route('/:id').post((req, res) => {
-    Application.findById(req.params.id)
-        .then(application => {
-            application.company = req.body.company
-            application.position = req.body.position
-            application.date = Date(req.body.date)
-            application.status = req.body.status
-
-            application.save()
-                .then(() => res.json("Exercise updates!"))
-                .catch(err => res.status(400).json("Error: " + err))
+            applications.apps.pull(req.params.id)
+            applications.save()
+            res.json(applications)
         })
         .catch(err => res.status(400).json("Error: " + err));
 })
